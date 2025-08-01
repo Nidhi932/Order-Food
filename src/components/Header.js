@@ -1,0 +1,82 @@
+import { LOGO_URL } from "../utils/constants";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
+import Cart from "./Cart";
+
+const Header = () => {
+  const [btnname, setbtnname] = useState("Login");
+  const [showCart, setShowCart] = useState(false);
+  const { getCartCount, getCartTotal } = useCart();
+  const cartRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (cartRef.current && !cartRef.current.contains(event.target)) {
+        setShowCart(false);
+      }
+    };
+
+    if (showCart) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showCart]);
+
+  const Logo = () => {
+    return (
+      <a className="logo">
+        <img src={LOGO_URL} alt="logo" />
+      </a>
+    );
+  };
+
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+    }).format(price / 100);
+  };
+
+  return (
+    <div className="header">
+      <div>
+        <Logo />
+      </div>
+      <nav className="nav-items">
+        <ul>
+          <li className="home">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="about">
+            <Link to="/">About Us</Link>
+          </li>
+          <li className="contact">
+            <Link to="/">Contact Us</Link>
+          </li>
+          <li ref={cartRef}>
+            <div className="go-btn" onClick={() => setShowCart(!showCart)}>
+              🛒 Cart
+            </div>
+            {showCart && <Cart />}
+          </li>
+          <li>
+            <button
+              className={`${btnname === "Login" ? "login-btn" : "logout-btn"}`}
+              onClick={() => {
+                setbtnname(btnname === "Login" ? "Logout" : "Login");
+              }}
+            >
+              {btnname}
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+};
+
+export default Header;
