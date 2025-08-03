@@ -5,6 +5,7 @@ const Shimmer = () => {
       <div className="shimmer-body">
         <div className="skeleton">
           <div className="shimmer-img"></div>
+          <div className="shi-res-header"></div>
         </div>
         <div className="skeleton">
           <div className="shimmer-img"></div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "../context/CartContext";
-import "./Cart.css";
+import Notification from "./Notification";
 
 const Cart = () => {
   const { items, removeFromCart, updateQuantity, clearCart, getCartTotal } =
@@ -25,6 +25,24 @@ const Cart = () => {
   const handleClose = () => {
     console.log("Close button clicked");
     setIsOpen(false);
+  };
+  const handleCheckout = () => {
+    // Show success notification
+    setNotification({
+      message: `Order placed successfully! Total: ${formatPrice(
+        getCartTotal() + 4000
+      )}`,
+      type: "success",
+    });
+
+    // Clear the cart after a short delay to show the notification
+    setTimeout(() => {
+      clearCart();
+      // Close cart after checkout
+      setTimeout(() => {
+        setIsOpen(false);
+      }, 1000);
+    }, 500);
   };
 
   // Don't render anything if cart is closed

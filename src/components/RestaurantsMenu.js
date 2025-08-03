@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { useCart } from "../context/CartContext";
 import Notification from "./Notification";
-import "./RestaurantsMenu.css";
 
 const RestaurantsMenu = () => {
   const [menuList, setMenuList] = useState([]);
@@ -62,14 +61,6 @@ const RestaurantsMenu = () => {
 
   return (
     <div className="restaurant-menu">
-      {notification && (
-        <Notification
-          message={notification.message}
-          type={notification.type}
-          onClose={() => setNotification(null)}
-        />
-      )}
-
       <div className="restaurant-header">
         <div className="restaurant-info">
           <h1 className="restaurant-name">{text}</h1>
