@@ -750,9 +750,7 @@ a {
 .shimmer-body {
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
   justify-content: center;
-  margin: 20px;
 }
 
 /* === Media Queries for Responsiveness === */
