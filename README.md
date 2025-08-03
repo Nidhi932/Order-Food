@@ -98,24 +98,6 @@ src/
 - Add to cart buttons with hover effects
 - Success notifications on item addition
 
-## 📱 Responsive Design
-
-The application is fully responsive and works great on:
-
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (320px - 767px)
-
-## 🚀 Future Enhancements
-
-- [ ] User authentication
-- [ ] Order history
-- [ ] Payment integration
-- [ ] Wishlist functionality
-- [ ] Restaurant reviews and ratings
-- [ ] Delivery tracking
-- [ ] Push notifications
-
 ## 📄 License
 
 This project is licensed under the ISC License.
