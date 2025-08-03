@@ -64,9 +64,12 @@ const Body = () => {
                 onChange={(e) => setSearchText(e.target.value)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    e.preventDefault(); // Prevent form submission
                     handleSearch();
                   }
                 }}
+                enterKeyHint="search" // Shows "Search" instead of "Go" on mobile
+                inputMode="search"
               />
               <svg
                 className="search-icon"
