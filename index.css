@@ -1034,6 +1034,8 @@ a {
   display: flex;
   align-items: center;
   position: relative;
+  padding: 12px 16px;
+  border-bottom: solid 1px #f0f0f0;
 }
 
 .cart-item:last-child {
