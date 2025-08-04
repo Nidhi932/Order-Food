@@ -6,6 +6,7 @@ const Cart = () => {
   const { items, removeFromCart, updateQuantity, clearCart, getCartTotal } =
     useCart();
   const [isOpen, setIsOpen] = useState(true); // Start with cart open
+  const [notification, setNotification] = useState(null); // Add notification state
 
   const handleQuantityChange = (itemId, newQuantity) => {
     if (newQuantity === 0) {
@@ -26,6 +27,7 @@ const Cart = () => {
     console.log("Close button clicked");
     setIsOpen(false);
   };
+
   const handleCheckout = () => {
     // Show success notification
     setNotification({
@@ -45,6 +47,11 @@ const Cart = () => {
     }, 500);
   };
 
+  // Function to close notification
+  const closeNotification = () => {
+    setNotification(null);
+  };
+
   // Don't render anything if cart is closed
   if (!isOpen) {
     return null;
@@ -53,6 +60,13 @@ const Cart = () => {
   if (items.length === 0) {
     return (
       <div className="cart-container">
+        {notification && (
+          <Notification
+            message={notification.message}
+            type={notification.type}
+            onClose={closeNotification}
+          />
+        )}
         <div className="cart-header">
           <h2>Your Cart</h2>
           <button className="cart-close-btn" onClick={handleClose}>
@@ -87,6 +101,13 @@ const Cart = () => {
 
   return (
     <div className="cart-container">
+      {notification && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={closeNotification}
+        />
+      )}
       <div className="cart-header">
         <h2>Your Cart ({items.length} items)</h2>
         <button className="cart-close-btn" onClick={handleClose}>
@@ -185,7 +206,9 @@ const Cart = () => {
           <button className="clear-cart-btn" onClick={clearCart}>
             Clear Cart
           </button>
-          <button className="checkout-btn">Checkout</button>
+          <button className="checkout-btn" onClick={handleCheckout}>
+            Checkout
+          </button>
         </div>
       </div>
     </div>

@@ -39,6 +39,11 @@ const RestaurantsMenu = () => {
     });
   };
 
+  // Function to close notification
+  const closeNotification = () => {
+    setNotification(null);
+  };
+
   if (!menuList?.cards || menuList.cards.length < 3) {
     return (
       <div className="menu-loading">
@@ -61,6 +66,13 @@ const RestaurantsMenu = () => {
 
   return (
     <div className="restaurant-menu">
+      {notification && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={closeNotification}
+        />
+      )}
       <div className="restaurant-header">
         <div className="restaurant-info">
           <h1 className="restaurant-name">{text}</h1>
@@ -147,4 +159,5 @@ const RestaurantsMenu = () => {
     </div>
   );
 };
+
 export default RestaurantsMenu;
