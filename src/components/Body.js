@@ -19,13 +19,19 @@ const Body = () => {
     );
     const json = await data.json();
 
-    const obj =
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    const filtered_list = obj
-      .filter((x) => x["@type"] === RESTAURANT_TYPE_KEY)
-      ?.map((x) => x?.info);
-    console.log(obj);
+    const obj = json?.data?.cards
+      ?.find((x) =>
+        x?.card?.card?.gridElements?.infoWithStyle?.["@type"]?.includes(
+          "FoodRestaurantGridListingInfo"
+        )
+      )
+      ?.card?.card?.gridElements?.infoWithStyle?.restaurants?.map(
+        (x) => x?.info
+      );
+    // const filtered_list = obj
+    //   .filter((x) => x["@type"] === RESTAURANT_TYPE_KEY)
+    //   ?.map((x) => x?.info);
+    // console.log(obj);
     // setList(obj);
     // setFilteredList(obj);
 
@@ -34,9 +40,10 @@ const Body = () => {
     //     ?.map((x) => x.card)
     //     ?.find((x) => x && x.card["@type"] === RESTAURANT_TYPE_KEY) || null;
 
-    setList(filtered_list);
-    setFilteredList(filtered_list);
-    console.log(filtered_list);
+    setList(obj);
+    setFilteredList(obj);
+    console.log(json);
+    console.log(obj);
   };
   const handleSearch = () => {
     const searchedList = List.filter((res) =>

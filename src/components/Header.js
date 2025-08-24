@@ -1,4 +1,3 @@
-import { LOGO_URL } from "../utils/constants";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
@@ -42,7 +41,10 @@ const Header = () => {
   const Logo = () => {
     return (
       <Link to="/" className="logo">
-        <img src={LOGO_URL} alt="logo" />
+        <img
+          src="https://ik.imagekit.io/alsq7a3ki/Logo.png?updatedAt=1756066692261"
+          alt="logo"
+        />
       </Link>
     );
   };
