@@ -280,7 +280,7 @@ a {
   padding-left: 50px;
   margin: 120px auto 15px;
   height: 48px;
-  width: 430px;
+  width: 450px;
   border-radius: 12px;
   border: 1px solid #e1e5e9;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -436,8 +436,8 @@ a {
 .skeleton {
   width: 240px;
   height: 340px;
-  padding: 10px;
   margin: 20px;
+  padding: 10px;
   border-radius: 10px;
   display: flex;
   background-color: #fff;
@@ -591,8 +591,7 @@ a {
     }
     .shimmer-search-box {
       margin-top: 90px;
-      width: 100%;
-      max-width: 400px;
+      width: 50%;
     }
     .search-icon {
       width: 20px;
@@ -944,7 +943,6 @@ a {
   position: fixed;
   top: 80px;
   right: 20px;
-  width: 100%;
   max-height: 90vh;
   background: white;
   border-radius: 16px;
