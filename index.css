@@ -1579,6 +1579,21 @@ a {
     display: flex;
     justify-content: center;
   }
+  .cart-container {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    width: 90%;
+    max-width: 100%;
+    max-height: 550px;
+    border-radius: 16px;
+    animation: slideInMobile 0.3s ease-out;
+  }
+  .cart-items {
+    max-height: 200px;
+  }
 }
 
 @media (max-width: 480px) {
