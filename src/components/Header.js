@@ -110,12 +110,12 @@ const Header = () => {
             </Link>
           </li>
           <li className="about">
-            <Link to="/about" onClick={closeMobileMenu}>
+            <Link to="/" onClick={closeMobileMenu}>
               About Us
             </Link>
           </li>
           <li className="contact">
-            <Link to="/contact" onClick={closeMobileMenu}>
+            <Link to="/" onClick={closeMobileMenu}>
               Contact Us
             </Link>
           </li>
