@@ -6,9 +6,9 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
-import RestaurantsMenu from "./components/RestaurantsMenu";
 import { CartProvider } from "./context/CartContext";
-
+import { lazy } from "react";
+const RestaurantsMenu = lazy(() => import("./components/RestaurantsMenu"));
 const Applayout = () => (
   <CartProvider>
     <div className="applayout">
